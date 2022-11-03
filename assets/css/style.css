@@ -36,6 +36,7 @@ body.wrong {
     box-shadow: 0 0 10px 2px;
     font-size: 32px;
     margin-top: 100px;
+    background-color: white;
 }
 
 .btn-grid {
@@ -84,7 +85,9 @@ body.wrong {
     display: none;
 }
 
-
+section h3 {
+    text-align: center;
+}
 
   header {
       display: flex;
@@ -93,16 +96,6 @@ body.wrong {
       margin-top: 1%;
   }
   
-  section {
-      display: flex;
-      justify-content: left;
-      width: 35%;
-      margin-left:37.5%;
-      margin-top:4%;
-  }
-  
-  section h2 {
-      font-size: 32px;
-  }
+
   
       
