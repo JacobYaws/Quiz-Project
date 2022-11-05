@@ -12,27 +12,53 @@
 <body>
     <header>
         <h1>View high scores</h1>
-        <h1>Time: </h1>
+        <h1 id="timer">Time: </h1>
     </header>
 
     <!--<section>
         <h2>Question that will be asked and changed throughout the quiz.</h2>
     </section><!-->
         
-    <div class="container">
-        <div id="question-container" class="hide">  
-        <div id="question">Question</div>    
-        <div id="answer-buttons" class="btn-grid">
+    <section class="container">
+        
+        <section id="question-container" class="hide">  
+        <section id="question">Question</section>    
+        <section id="answer-buttons" class="btn-grid">
                 <button class="btn">Answer 1</button>
                 <button class="btn">Answer 2</button>
                 <button class="btn">Answer 3</button>
                 <button class="btn">Answer 4</button>
-        </div>
-    </div>
-    <div class="controls">
+        </section>
+      
+    </section>
+    
+    <section id="end-screen" class="hide">
+        <h3>All done!</h3>
+        <p id="final-score" class="hide"></p>
+            <article>
+                <p >Enter initials: <input></input> <button id="submit-btn">Submit</button></p>
+             </article>
+        
+    </section>
+    <section id="high-scores" class="hide">
+        <h3 >High Scores</h3>
+            <ul>
+                <li></li>
+                
+            </ul>
+        <Button id="restart">Restart</Button>
+    </section>
+
+    <h3 id="start-text">Click start to begin the quiz</h3>
+    <section class="controls">
     <button id="start-btn" class="start-btn btn">Start</button>
-    <button id="next-btn" class="next-btn btn hide">Next</button>           
-</div>
+    <button id="next-btn" class="next-btn btn hide">Next</button>
+    </section>           
+</section>
+
+    
+
+    
 
 
 
