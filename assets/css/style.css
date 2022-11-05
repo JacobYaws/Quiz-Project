@@ -32,11 +32,12 @@ body.wrong {
     width:500px;
     max-width: 80%;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 45px ;
     box-shadow: 0 0 10px 2px;
     font-size: 32px;
     margin-top: 100px;
     background-color: white;
+    text-align: center;
 }
 
 .btn-grid {
@@ -87,6 +88,12 @@ body.wrong {
 
 section h3 {
     text-align: center;
+    font-size: 24px;
+}
+
+section p {
+    text-align:center;
+    font-size:20px;
 }
 
   header {

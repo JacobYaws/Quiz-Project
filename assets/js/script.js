@@ -3,10 +3,19 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
-const beginningText = document.getElementById('start-text');
+const beginningTextElement = document.getElementById('start-text');
+const containerElement = document.getElementById('container');
+const endTextElement = document.getElementById('end-screen');
+const submitButton = document.getElementById('submit-btn');
+const restartButton = document.getElementById('restart')
+const endHeader = document.getElementById('end-header');
+const scores = document.getElementById('high-scores');
+const finalScore = document.getElementById('final-score');
+const timer = document.getElementById('timer')
 
 let shuffledQuestions, currentQuestionIndex;
-
+let p = document.createElement("p");
+let gameEnd = false;
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
@@ -14,25 +23,44 @@ nextButton.addEventListener('click', () => {
     setNextQuestion();
 })
 
-var score = 0;
 
+var score
+var time
 
-
+function setTime() {
+    var timerInterval = setInterval(function() {
+      time--;
+      timer.textContent = 'Time: ' + time
+  
+      if(time <= 0) {
+        clearInterval(timerInterval);
+        timer.textContent = 'Time: 0';
+        endGame();
+      } if (gameEnd) {
+        clearInterval(timerInterval);
+      }
+  
+    }, 1000);
+  }
 
 function startGame() {
     console.log('Started');
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
-    beginningText.classList.add('hide');
+    beginningTextElement.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
-    setNextQuestion();
+    score = 0;
+    gameEnd = false;
+    time = 75;
+    timer.textContent = 'Time: ' + time;
+    setTime();
+    setNextQuestion();   
 };
 
 function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
-
 };
 
 function showQuestion(question) {
@@ -63,13 +91,44 @@ function selectAnswer(event) {
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     })
+    if (correct) {
+        score += 10;
+        console.log(score);
+    } else {
+        time -= 15;
+    }
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide');
-    } else {
-        startButton.innerText = 'Restart';
-        startButton.classList.remove('hide');
+    } else {  
+       gameEnd = true; 
+       endGame();  
     }
 };
+
+    function endGame () {
+        endTextElement.classList.remove('hide');
+        finalScore.classList.remove('hide');
+        finalScore.innerText = "Your final score is "+ score + " points." ;
+        questionContainerElement.classList.add('hide');
+        submitButton.addEventListener('click', highScores);
+}
+
+
+function highScores() {
+    console.log("click");
+    scores.classList.remove('hide');
+    endTextElement.classList.add('hide');
+    restartButton.addEventListener('click', newGame);
+}
+
+function newGame () {
+    beginningTextElement.classList.remove('hide');
+    startButton.classList.remove('hide');
+    scores.classList.add('hide');
+    endTextElement.classList.remove('hide');
+    endTextElement.classList.add('hide');
+    finalScore.classList.add('hide');
+}
 
 function setStatusClass(element, correct) {
     clearStatusClass(element);
