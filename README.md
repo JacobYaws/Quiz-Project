@@ -21,9 +21,11 @@ For this project, I was tasked with creating a quiz webpage using javascript.
 
 ## Screenshots
   
-  <img src="">
+  <img src="https://github.com/JacobYaws/Quiz-Project/blob/main/QuizProject1.png">
   
-  <img src="">
+  <img src="https://github.com/JacobYaws/Quiz-Project/blob/main/QuizProject2.png">
+
+  <img src="https://github.com/JacobYaws/Quiz-Project/blob/main/QuizProject3.png">
 
 
 ## Useful Links  
