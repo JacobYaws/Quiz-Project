@@ -103,6 +103,10 @@ section p {
       margin-top: 1%;
   }
   
-
+li {
+    list-style: none;
+    text-align: left;
+    font-size: 24px;
+}
   
       
